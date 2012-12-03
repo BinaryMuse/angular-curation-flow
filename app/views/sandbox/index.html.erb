@@ -1,3 +1,5 @@
+<% content_for :title, "Home" %>
+
 <div class='contain-to-grid'>
   <nav class='top-bar'>
     <ul>
@@ -5,8 +7,8 @@
       <li class='toggle-topbar'><a href='#'></a></li>
     </ul>
     <section>
-      <ul class='left'>
-        <li><a href='#'>+ Add</a></li>
+      <ul class='left' ng-controller='CurationController'>
+        <li><a ng-click='startCuration()'>+ Add</a></li>
       </ul>
     </section>
   </nav>
@@ -16,5 +18,37 @@
   <div class='four columns'>
     <h1>Testing</h1>
     <p>Why don't you give the 'Add' button a go?</p>
+  </div>
+</div>
+
+<!-- HTML for curation modals -->
+<!-- These could turn into Ajax loads with ng-include -->
+<div ng-controller="CurationController" style='display: none;'>
+  <!-- select action -->
+  <div curation-step="introduction">
+    <div ng-controller="CurationIntroductionController" class='curation-modal'>
+      <p>Select add method:</p>
+      <button ng-click="chooseAddUrl()">Add from URL</button>
+      <button ng-click="chooseUpload()">Upload</button>
+      <button ng-click="chooseAddBoard()">Add Board</button>
+    </div>
+  </div>
+
+  <!-- enter URL -->
+  <div curation-step="url">
+    <div ng-controller="CurationUrlController" class='curation-modal'>
+      <a ng-click='back()'>Back</a><br />
+      URL: <input ng-model='curation.learning.url'><br />
+      {{curation.learning.url}}<br />
+      <button ng-click='next()'>Next</button>
+    </div>
+  </div>
+
+  <!-- upload -->
+  <div curation-step="upload">
+    <div ng-controller="CurationUploadController" class='curation-modal'>
+      <a ng-click='back()'>Back</a><br />
+      <p>This is the upload modal</p>
+    </div>
   </div>
 </div>
