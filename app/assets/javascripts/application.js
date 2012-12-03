@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require zenbox
 //= require angular
 //= require angular-resource
 //= require_tree .
