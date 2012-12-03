@@ -14,10 +14,11 @@
   </nav>
 </div>
 
-<div class='row'>
+<div class='row' ng-controller="CurationController">
   <div class='four columns'>
     <h1>Testing</h1>
     <p>Why don't you give the 'Add' button a go?</p>
+    <pre>{{curation|json}}</pre>
   </div>
 </div>
 
@@ -38,9 +39,10 @@
   <div curation-step="url">
     <div ng-controller="CurationUrlController" class='curation-modal'>
       <a ng-click='back()'>Back</a><br />
-      URL: <input ng-model='curation.learning.url'><br />
-      {{curation.learning.url}}<br />
-      <button ng-click='next()'>Next</button>
+      <form ng-submit="next()">
+        URL: <input ng-disabled='busy' required ng-model='curation.learning.url' ng-change='changeUrl()'><br />
+        <button ng-disabled='busy'>Next</button>
+      </form>
     </div>
   </div>
 
@@ -49,6 +51,29 @@
     <div ng-controller="CurationUploadController" class='curation-modal'>
       <a ng-click='back()'>Back</a><br />
       <p>This is the upload modal</p>
+    </div>
+  </div>
+
+  <!-- board -->
+  <div curation-step="board">
+    <div ng-controller="CurationBoardController" class='curation-modal'>
+      <a ng-click='back()'>Back</a><br />
+      <p>This is the board modal</p>
+    </div>
+  </div>
+
+  <!-- select image -->
+  <div curation-step="image">
+    <div ng-controller="CurationImageController" class='curation-modal image-select-modal'>
+      <a ng-click='back()'>Back</a><br />
+      <div class='image-select'>
+        <div ng-repeat="image in curation.imageUrls" class='image'
+             ng-click='select(image)'
+             ng-class='{selected:selected(image)}'>
+          <img ng-src="{{image}}">
+        </div>
+      </div>
+      <button ng-click='next()' ng-disabled='curation.learning.imageUrl==""'>Next</button>
     </div>
   </div>
 </div>
