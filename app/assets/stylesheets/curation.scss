@@ -6,16 +6,17 @@
     height: 300px;
 
     .image-select {
-      width: 350px;
+      width: 275px;
       height: 250px;
       overflow: auto;
 
       .image {
         vertical-align: top;
         display: inline-block;
-        width: 100px;
-        height: 100px;
+        width: 81px;
+        height: 81px;
         border: 1px solid white;
+        padding: 3px;
 
         &:hover, &.selected {
           border: 1px solid blue;
@@ -23,9 +24,9 @@
       }
 
       img {
-        max-width: 100px;
-        max-height: 100px;
-        padding: 10px;
+        // max-width: 75px;
+        // max-height: 75px;
+        // padding: 3px;
       }
     }
   }

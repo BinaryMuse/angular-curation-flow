@@ -32,12 +32,7 @@ app.controller 'CurationUrlController', ($scope, curation, flickr) ->
         curation.reset()
         curation.error = err
       else
-        curation.imageUrls = data.photos.photo.map (photo) ->
-          farm   = photo.farm
-          server = photo.server
-          id     = photo.id
-          secret = photo.secret
-          "http://farm#{farm}.staticflickr.com/#{server}/#{id}_#{secret}_m.jpg"
+        curation.imageUrls = data
         curation.goToStep 'image'
         $scope.busy = false
 
