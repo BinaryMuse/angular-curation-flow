@@ -28,21 +28,21 @@
 <div ng-controller="CurationController" style='display: none;'>
   <!-- select action -->
   <div curation-step="introduction">
-    <div ng-controller="CurationIntroductionController" class='curation-modal'>
+    <div ng-controller="CurationIntroductionController" class='curation-modal introduction-modal'>
       <p>Select add method:</p>
-      <button ng-click="chooseAddUrl()">Add from URL</button>
-      <button ng-click="chooseUpload()">Upload</button>
-      <button ng-click="chooseAddBoard()">Add Board</button>
+      <button class='button' ng-click="chooseAddUrl()">Add from URL</button>
+      <button class='button' ng-click="chooseUpload()">Upload</button>
+      <button class='button' ng-click="chooseAddBoard()">Add Board</button>
     </div>
   </div>
 
   <!-- enter URL -->
   <div curation-step="url">
-    <div ng-controller="CurationUrlController" class='curation-modal'>
+    <div ng-controller="CurationUrlController" class='curation-modal url-modal'>
       <a ng-click='back()'>Back</a><br />
       <form ng-submit="next()">
-        URL: <input ng-disabled='busy' required ng-model='curation.learning.url' ng-change='changeUrl()'><br />
-        <button ng-disabled='busy'>Next</button>
+        <input ng-disabled='busy' required ng-model='curation.learning.url' ng-change='changeUrl()' placeholder='Enter a URL'><br />
+        <button class='button' ng-disabled='busy || !curation.learning.url.length'>Next</button> <span>{{curation.learning.url}}</span> / <span>{{busy|json}}</span>
       </form>
     </div>
   </div>
@@ -74,7 +74,7 @@
           <img ng-src="{{image}}">
         </div>
       </div>
-      <button ng-click='next()' ng-disabled='curation.learning.imageUrl==""'>Next</button>
+      <button class='button' ng-click='next()' ng-disabled='curation.learning.imageUrl==""'>Next</button>
     </div>
   </div>
 </div>

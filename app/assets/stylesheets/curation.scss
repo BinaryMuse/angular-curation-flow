@@ -2,13 +2,31 @@
   padding: 10px;
   min-width: 300px;
 
+  form {
+    margin: 0;
+  }
+
+  &.introduction-modal {
+    min-width: 375px;
+  }
+
+  &.url-modal {
+    input {
+      padding: 3px;
+      margin-bottom: 10px;
+      width: 275px;
+      font-size: 13px;
+    }
+  }
+
   &.image-select-modal {
-    height: 300px;
+    height: 335px;
 
     .image-select {
       width: 275px;
       height: 250px;
       overflow: auto;
+      margin-bottom: 10px;
 
       .image {
         vertical-align: top;

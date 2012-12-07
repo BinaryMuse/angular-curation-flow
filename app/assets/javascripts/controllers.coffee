@@ -4,8 +4,6 @@ app = angular.module 'sandbox'
 
 app.controller 'CurationController', ($scope, curation) ->
   $scope.curation = curation
-  window.curation = curation
-  $scope.getCuration = -> curation
   $scope.busy = false
 
   $scope.startCuration = ->
