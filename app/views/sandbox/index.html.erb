@@ -42,7 +42,7 @@
       <a ng-click='back()'>Back</a><br />
       <form ng-submit="next()">
         <input ng-disabled='busy' required ng-model='curation.learning.url' ng-change='changeUrl()' placeholder='Enter a URL'><br />
-        <button class='button' ng-disabled='busy || !curation.learning.url.length'>Next</button> <span>{{curation.learning.url}}</span> / <span>{{busy|json}}</span>
+        <button class='button' ng-disabled='busy || !curation.learning.url.length'>Next</button>
       </form>
     </div>
   </div>
